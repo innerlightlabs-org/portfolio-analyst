@@ -4,6 +4,15 @@
 
 A desktop tool for monitoring and analyzing personal investment portfolios. Aggregates holdings across brokerage accounts, surfaces real-time signals on price, valuation, and momentum, and tracks configurable alerts and strategies against your positions and watchlists.
 
+### Supported brokers
+
+First-class integrations (live OAuth sync of holdings, transactions, and quotes):
+
+- **Charles Schwab** — equities, ETFs, mutual funds, options. Cloud-sync uses the Innerlight Labs shared Schwab developer credentials; local-auth mode is available for users who supply their own.
+- **Coinbase** — spot crypto holdings via API key. Configured per-user with `portfolio auth coinbase`.
+
+Other brokers are not currently supported as live integrations. CSV transaction import (`portfolio import`) works for ad-hoc loading from any broker that exports trade history, but holdings won't sync live and quotes won't tick.
+
 This repository distributes release binaries for macOS, Linux, and Windows. Download the latest from the [Releases](https://github.com/innerlightlabs-org/portfolio-analyst/releases) page — stable builds use tags like `v1.2.0`, beta builds are marked as pre-releases.
 
 ## Install via Homebrew
