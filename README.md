@@ -1,6 +1,6 @@
 # Portfolio Analyst
 
-> **Status: Closed Beta.** Portfolio Analyst is currently distributed to a small group of invited users while we harden broker integrations and the cloud sync layer. Access is by invitation only — request access via the [contact link](mailto:innerlightlabs@gmail.com) on this org. Public release will follow once the closed-beta cohort has signed off.
+> **Status: Closed Beta.** Portfolio Analyst is currently distributed to a small group of invited users while we harden broker integrations and the cloud sync layer. Access is by invitation only. Public release will follow once the closed-beta cohort has signed off.
 
 A desktop tool for monitoring and analyzing personal investment portfolios. Aggregates holdings across brokerage accounts, surfaces real-time signals on price, valuation, and momentum, and tracks configurable alerts and strategies against your positions and watchlists.
 
