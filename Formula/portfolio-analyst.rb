@@ -1,26 +1,26 @@
 class PortfolioAnalyst < Formula
   desc "Multi-broker equity portfolio analyzer (CLI + TUI)"
   homepage "https://github.com/innerlightlabs-org/portfolio-analyst"
-  version "0.5.2"
+  version "0.5.3"
   license :cannot_represent
 
   on_macos do
     on_arm do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-macos-arm64.tar.gz"
-      sha256 "77ecc2ccdd34a02bf5289ebb247beea032d373a4f16a896f84051abeed051312"
+      sha256 "ac9ed36886178ed12d3781f3b3d5b52c5f4a5251944d48fcbd4351e39f1274d6"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-linux-x86_64.tar.gz"
-      sha256 "a5dedc8fbfe8253759fcc784862c506e6ed6924f525f0f79a68d3462aa180ecf"
+      sha256 "9ab098c55b508271c79d256b290581986daf7ad63c00834d9b277085765094ac"
     end
   end
 
   def install
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"portfolio"
+    bin.install_symlink libexec/"portfolio-analyst"/"portfolio"
   end
 
   def caveats
