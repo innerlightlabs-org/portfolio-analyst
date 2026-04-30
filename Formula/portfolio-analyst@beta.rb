@@ -1,0 +1,60 @@
+class PortfolioAnalystATBeta < Formula
+  desc "Multi-broker equity portfolio analyzer (CLI + TUI) — beta channel"
+  homepage "https://github.com/innerlightlabs-org/portfolio-analyst"
+  version "0.4.0"
+  license :cannot_represent
+
+  # Beta channel — tracks the latest v*-beta.N tag. The bump-formula CI
+  # job rewrites version + url + sha256 on every prerelease tag push.
+  # Until the first beta tag lands this file mirrors the current stable
+  # so `brew install portfolio-analyst@beta` doesn't 404.
+
+  on_macos do
+    on_arm do
+      url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-macos-arm64"
+      sha256 "26e279a2a3c603da93f389cc7151a64f3f2b0169cbde6ff17d2fdef00f8084b8"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-linux-x86_64"
+      sha256 "86d5830c24d518e810e755428c99b7ea6b49cb348ef634f8dc38a1cdcad4a4ab"
+    end
+  end
+
+  def install
+    asset = OS.mac? ? "portfolio-macos-arm64" : "portfolio-linux-x86_64"
+    bin.install asset => "portfolio"
+  end
+
+  def caveats
+    <<~EOS
+      You installed the BETA channel. To switch to stable:
+        brew uninstall portfolio-analyst@beta
+        brew install   portfolio-analyst
+
+      Quick start — pick ONE auth path, then run the monitor.
+
+      (1) Cloud sync (recommended — uses Innerlight Labs' shared
+          Schwab integration; no developer account required):
+
+            portfolio auth                 # Clerk sign-in + Schwab link
+            portfolio monitor              # live TUI, syncs in-app
+
+      (2) Local auth (only if you have your own Schwab developer
+          OAuth credentials in config.yaml):
+
+            portfolio auth local           # local OAuth, disables cloud
+            portfolio monitor              # live TUI, syncs in-app
+
+      All commands:    portfolio --help
+      Config + logs:   ~/.portfolio-analyst/
+      Issues:          https://github.com/innerlightlabs-org/portfolio-analyst/issues
+    EOS
+  end
+
+  test do
+    assert_match "Multi-broker", shell_output("#{bin}/portfolio --help")
+  end
+end
