@@ -1,13 +1,13 @@
 class PortfolioAnalyst < Formula
   desc "Multi-broker equity portfolio analyzer (CLI + TUI)"
   homepage "https://github.com/innerlightlabs-org/portfolio-analyst"
-  version "0.5.0"
+  version "0.5.1"
   license :cannot_represent
 
   on_macos do
     on_arm do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-macos-arm64"
-      sha256 "3554eaf3ce9c06c4031d7c2733eb582bf89bf2dae801cdae60bbf5f166b75616"
+      sha256 "fdf3f12093aae2d7fd4115d53b14dc78cd8266d7e919539ed39335c158ba602b"
     end
   end
 
