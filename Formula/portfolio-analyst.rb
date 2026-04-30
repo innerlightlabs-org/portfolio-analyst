@@ -19,8 +19,12 @@ class PortfolioAnalyst < Formula
   end
 
   def install
+    # Homebrew descends into a single top-level directory in the
+    # tarball before running this method, so libexec ends up holding
+    # the binary + _internal/ at the top level (no portfolio-analyst/
+    # wrapper). The symlink targets libexec/portfolio directly.
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"portfolio-analyst"/"portfolio"
+    bin.install_symlink libexec/"portfolio"
   end
 
   def caveats
