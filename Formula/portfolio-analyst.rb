@@ -1,28 +1,24 @@
 class PortfolioAnalyst < Formula
   desc "Multi-broker equity portfolio analyzer (CLI + TUI)"
   homepage "https://github.com/innerlightlabs-org/portfolio-analyst"
-  version "0.5.3"
+  version "0.5.4"
   license :cannot_represent
 
   on_macos do
     on_arm do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-macos-arm64.tar.gz"
-      sha256 "ac9ed36886178ed12d3781f3b3d5b52c5f4a5251944d48fcbd4351e39f1274d6"
+      sha256 "523ba11e98ec83ef59e79b946100b35a23dc7a066c2a1887c3d46a0065253104"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-linux-x86_64.tar.gz"
-      sha256 "9ab098c55b508271c79d256b290581986daf7ad63c00834d9b277085765094ac"
+      sha256 "b0c0196cf86a2b863301bc1f0cba2694b8aae8c50b05d6724748dcb79c1160b7"
     end
   end
 
   def install
-    # Homebrew descends into a single top-level directory in the
-    # tarball before running this method, so libexec ends up holding
-    # the binary + _internal/ at the top level (no portfolio-analyst/
-    # wrapper). The symlink targets libexec/portfolio directly.
     libexec.install Dir["*"]
     bin.install_symlink libexec/"portfolio"
   end
