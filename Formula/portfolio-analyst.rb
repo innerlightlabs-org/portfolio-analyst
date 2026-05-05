@@ -7,14 +7,14 @@ class PortfolioAnalyst < Formula
   on_macos do
     on_arm do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-macos-arm64.tar.gz"
-      sha256 "523ba11e98ec83ef59e79b946100b35a23dc7a066c2a1887c3d46a0065253104"
+      sha256 "da6892710281ece7365e6fb47c29192edc3c4c51b00c4a492755662dc1155f49"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/innerlightlabs-org/portfolio-analyst/releases/download/v#{version}/portfolio-linux-x86_64.tar.gz"
-      sha256 "b0c0196cf86a2b863301bc1f0cba2694b8aae8c50b05d6724748dcb79c1160b7"
+      sha256 "7a7a8d7e97ba786745160b929dddd681ab446bc79fa7ff7ae316b1bd058bb08c"
     end
   end
 
